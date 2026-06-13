@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for eller til — dansk træner</title>
+<style>
+  :root {
+    --bg: #f7f6f2;
+    --card: #ffffff;
+    --text: #1a1a18;
+    --muted: #6b6b66;
+    --border: rgba(0,0,0,0.1);
+    --for-color: #1a5fa8;
+    --for-bg: #eaf1fb;
+    --til-color: #0e6e52;
+    --til-bg: #e5f3ee;
+    --ok-bg: #e6f4ed;
+    --ok-text: #0a5c3a;
+    --ok-border: #9fd4b8;
+    --bad-bg: #fdecea;
+    --bad-text: #b03030;
+    --bad-border: #f4b4b0;
+    --progress: #1a5fa8;
+    --radius: 14px;
+    --radius-sm: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141412;
+      --card: #1e1e1b;
+      --text: #e8e6de;
+      --muted: #8a8a82;
+      --border: rgba(255,255,255,0.1);
+      --for-color: #7ab0f0;
+      --for-bg: #0e1e33;
+      --til-color: #5ecba0;
+      --til-bg: #0a2419;
+      --ok-bg: #0a2419;
+      --ok-text: #5ecba0;
+      --ok-border: #1a5c3a;
+      --bad-bg: #2a1010;
+      --bad-text: #f07070;
+      --bad-border: #5a2020;
+      --progress: #7ab0f0;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container {
+    width: 100%;
+    max-width: 520px;
+    padding: 20px 16px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+  }
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 4px 0 2px;
+  }
+  .title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .title span { color: var(--muted); font-weight: 400; }
+  .score-chip {
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .progress-wrap { position: relative; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill {
+    position: absolute; left: 0; top: 0; height: 100%;
+    background: var(--progress);
+    border-radius: 2px;
+    transition: width 0.35s ease;
+  }
+  .card {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 18px 18px;
+  }
+  .ex-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .sentence-da {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .divider {
+    height: 0.5px;
+    background: var(--border);
+    margin: 10px 0;
+  }
+  .sentence-ru {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .blank {
+    display: inline-block;
+    min-width: 54px;
+    padding: 0 6px;
+    border-bottom: 2px solid var(--border);
+    text-align: center;
+    font-weight: 600;
+    vertical-align: bottom;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .blank-ru {
+    display: inline-block;
+    min-width: 38px;
+    padding: 0 4px;
+    border-bottom: 1.5px dashed var(--border);
+    text-align: center;
+    vertical-align: bottom;
+  }
+  .btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .btn {
+    padding: 15px 12px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid;
+    background: transparent;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    letter-spacing: 0.02em;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-for { border-color: var(--for-color); color: var(--for-color); }
+  .btn-for:hover { background: var(--for-bg); }
+  .btn-til { border-color: var(--til-color); color: var(--til-color); }
+  .btn-til:hover { background: var(--til-bg); }
+  .btn:disabled { opacity: 0.3; cursor: default; transform: none; }
+  .feedback {
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.65;
+    animation: fadeIn 0.2s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  .feedback b { font-weight: 600; }
+  .feedback.ok { background: var(--ok-bg); color: var(--ok-text); border: 0.5px solid var(--ok-border); }
+  .feedback.bad { background: var(--bad-bg); color: var(--bad-text); border: 0.5px solid var(--bad-border); }
+  .next-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    border: 0.5px solid var(--border);
+    background: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: background 0.15s;
+  }
+  .next-btn:hover { background: var(--border); }
+  .next-btn:active { transform: scale(0.98); }
+
+  /* Done screen */
+  .done {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    padding: 40px 0;
+  }
+  .done-emoji { font-size: 48px; margin-bottom: 8px; }
+  .done-score { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; }
+  .done-label { color: var(--muted); font-size: 15px; margin-bottom: 4px; }
+  .done-msg { font-size: 16px; font-weight: 500; margin-bottom: 16px; }
+  .restart-btn {
+    padding: 13px 32px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text);
+    transition: background 0.15s;
+  }
+  .restart-btn:hover { background: var(--border); }
+
+  @media (max-width: 380px) {
+    .sentence-da { font-size: 16px; }
+    .btn { font-size: 16px; padding: 14px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+const items = [
+  { ex:"Øvelse 1", da_b:"Hvad skal vi have", da_a:"middag?", ru_b:"Что у нас будет", ru_a:"ужин?", ans:"til", ru_ans:"на", explain:"<b>til middag</b> — «на обед/ужин». Назначение еды → til." },
+  { ex:"Øvelse 1", da_b:"Er du glad", da_a:"din nye lejlighed?", ru_b:"Ты рад", ru_a:"свою новую квартиру?", ans:"for", ru_ans:"за", explain:"<b>glad for</b> — устойчивое выражение: рад чему-то → for." },
+  { ex:"Øvelse 1", da_b:"Du skal ikke være bange", da_a:"hunden, den gør ikke noget.", ru_b:"Не бойся", ru_a:"собаку, она ничего не сделает.", ans:"for", ru_ans:"—", explain:"<b>bange for</b> — бояться чего-то. Причина страха → for." },
+  { ex:"Øvelse 1", da_b:"Vil du med", da_a:"København i week-enden?", ru_b:"Поедешь с нами", ru_a:"Копенгаген на выходных?", ans:"til", ru_ans:"в", explain:"<b>til + место</b> — направление («в Копенгаген») → til." },
+  { ex:"Øvelse 1", da_b:"Det har ikke været muligt", da_a:"mig at skaffe billetter.", ru_b:"Мне не удалось", ru_a:"достать билеты.", ans:"for", ru_ans:"—", explain:"<b>muligt for mig</b> — возможно для меня. Кому → for." },
+  { ex:"Øvelse 1", da_b:"Han var for træt", da_a:"at gå med.", ru_b:"Он был слишком устал", ru_a:"идти с нами.", ans:"til", ru_ans:"чтобы", explain:"<b>for [прил.] til at</b> — «слишком … чтобы». Конструкция всегда for...til at." },
+  { ex:"Øvelse 1", da_b:"Vil du ikke give 300 kr.", da_a:"en brugt cykel?", ru_b:"Не дашь 300 крон", ru_a:"подержанный велосипед?", ans:"for", ru_ans:"за", explain:"<b>give penge for</b> — заплатить за что-то → for." },
+  { ex:"Øvelse 1", da_b:"Tror du, det vil lykkes", da_a:"mig at finde bedre arbejde?", ru_b:"Думаешь, мне удастся", ru_a:"найти работу получше?", ans:"for", ru_ans:"—", explain:"<b>lykkes for nogen</b> — удасться кому-то → for." },
+  { ex:"Øvelse 1", da_b:"Det er meget vigtigt", da_a:"mig, at du tager med.", ru_b:"Мне очень важно", ru_a:"чтобы ты пошёл с нами.", ans:"for", ru_ans:"для", explain:"<b>vigtigt for mig</b> — важно для меня → for." },
+  { ex:"Øvelse 1", da_b:"Du skal først dreje", da_a:"højre.", ru_b:"Сначала нужно повернуть", ru_a:"направо.", ans:"til", ru_ans:"направо", explain:"<b>dreje til højre/venstre</b> — повернуть направо/налево → til." },
+  { ex:"Øvelse 1", da_b:"Biblioteket ligger til venstre", da_a:"posthuset.", ru_b:"Библиотека находится слева", ru_a:"почты.", ans:"for", ru_ans:"от", explain:"<b>til venstre for</b> — слева от чего-то. Пространственная позиция → for." },
+  { ex:"Øvelse 1", da_b:"Titanic var på vej", da_a:"Amerika.", ru_b:"«Титаник» был на пути", ru_a:"Америку.", ans:"til", ru_ans:"в", explain:"<b>på vej til</b> — на пути куда-то. Направление → til." },
+  { ex:"Øvelse 2", da_b:"Der er telefon", da_a:"dig.", ru_b:"Тебя", ru_a:"к телефону.", ans:"til", ru_ans:"—", explain:"<b>telefon til dig</b> — звонок тебе. Получатель → til." },
+  { ex:"Øvelse 2", da_b:"Er der nogen breve", da_a:"mig?", ru_b:"Есть письма", ru_a:"мне?", ans:"til", ru_ans:"мне", explain:"<b>breve til mig</b> — письма мне. Получатель → til." },
+  { ex:"Øvelse 2", da_b:"Jeg har købt en gave", da_a:"min bror.", ru_b:"Я купил подарок", ru_a:"своего брата.", ans:"til", ru_ans:"брату", explain:"<b>gave til</b> — подарок кому-то. Получатель → til." },
+  { ex:"Øvelse 2", da_b:"Jeg købte noget stof", da_a:"en kjole.", ru_b:"Я купила ткань", ru_a:"платье.", ans:"til", ru_ans:"на", explain:"<b>stof til en kjole</b> — ткань на платье. Назначение → til." },
+  { ex:"Øvelse 2", da_b:"Hun havde ikke mad", da_a:"sine børn.", ru_b:"У неё не было еды", ru_a:"детей.", ans:"til", ru_ans:"для", explain:"<b>mad til børn</b> — еда для детей (назначение) → til." },
+  { ex:"Øvelse 2", da_b:"Børn er turen gratis", da_a:"", ru_b:"Для детей поездка бесплатна.", ru_a:"", ans:"for", ru_ans:"для", explain:"<b>gratis for børn</b> — бесплатно для детей. Кому это касается → for." },
+  { ex:"Øvelse 2", da_b:"I TV er der programmer", da_a:"børn.", ru_b:"На ТВ есть программы", ru_a:"детей.", ans:"til", ru_ans:"для", explain:"<b>programmer til børn</b> — передачи для детей (кому предназначены) → til." },
+  { ex:"Øvelse 2", da_b:"Han blev en god far", da_a:"hendes børn.", ru_b:"Он стал хорошим отцом", ru_a:"её детей.", ans:"for", ru_ans:"для", explain:"<b>far for børn</b> — отец для детей (в их пользу). Польза → for." },
+  { ex:"Øvelse 2", da_b:"Hun underviser i gymnastik", da_a:"kvinder.", ru_b:"Она ведёт гимнастику", ru_a:"женщин.", ans:"for", ru_ans:"для", explain:"<b>undervise for</b> — преподавать для кого-то (аудитория) → for." },
+  { ex:"Øvelse 2", da_b:"Min far arbejder", da_a:"et firma.", ru_b:"Мой отец работает", ru_a:"компанию.", ans:"for", ru_ans:"на", explain:"<b>arbejde for</b> — работать на/в чью пользу → for." },
+  { ex:"Øvelse 2", da_b:"Kan jeg gøre noget", da_a:"dig?", ru_b:"Могу я что-нибудь сделать", ru_a:"тебя?", ans:"for", ru_ans:"для", explain:"<b>gøre noget for nogen</b> — сделать что-то для кого-то → for." },
+  { ex:"Øvelse 2", da_b:"Hun lavede mad", da_a:"gæsterne.", ru_b:"Она приготовила еду", ru_a:"гостей.", ans:"til", ru_ans:"для", explain:"<b>mad til gæsterne</b> — еда для гостей. Назначение → til." },
+  { ex:"Øvelse 2", da_b:"Medicin", da_a:"syge børn.", ru_b:"Лекарство", ru_a:"больных детей.", ans:"til", ru_ans:"для", explain:"<b>medicin til</b> — лекарство кому (назначение предмета) → til." },
+  { ex:"Øvelse 2", da_b:"Han gav penge", da_a:"en ny cykel.", ru_b:"Он дал деньги", ru_a:"новый велосипед.", ans:"til", ru_ans:"на", explain:"<b>penge til noget</b> — деньги на что-то. Назначение → til." },
+  { ex:"Øvelse 2", da_b:"Jeg fik en tegning, som Peter havde tegnet", da_a:"mig.", ru_b:"Я получила рисунок, который Питер нарисовал", ru_a:"меня.", ans:"til", ru_ans:"для", explain:"<b>tegne til nogen</b> — нарисовать и отдать кому-то. Получатель → til." },
+  { ex:"Øvelse 2", da_b:"Hun tegnede huset", da_a:"mig, så jeg bedre kunne forstå det.", ru_b:"Она нарисовала дом", ru_a:"меня, чтобы я лучше понял.", ans:"for", ru_ans:"для", explain:"<b>tegne for nogen</b> — нарисовать показывая кому-то (демонстрация) → for." },
+  { ex:"Øvelse 2", da_b:"Kun adgang", da_a:"personale.", ru_b:"Только вход", ru_a:"персонала.", ans:"for", ru_ans:"для", explain:"<b>adgang for</b> — доступ для (кому разрешено) → for." },
+  { ex:"Øvelse 2", da_b:"Der er fri adgang", da_a:"bøgerne på biblioteket.", ru_b:"Книги в библиотеке доступны", ru_a:"всех бесплатно.", ans:"til", ru_ans:"—", explain:"<b>fri adgang til</b> — свободный доступ к чему-то. Направление → til." },
+  { ex:"Øvelse 2", da_b:"Kattemad er mad", da_a:"katte.", ru_b:"Кошачий корм — это еда", ru_a:"кошек.", ans:"til", ru_ans:"для", explain:"<b>mad til katte</b> — еда для кошек. Назначение → til." },
+  { ex:"Øvelse 2", da_b:"Jeg kan ikke lide lever, det er ikke noget", da_a:"mig.", ru_b:"Я не люблю печень — это не моё.", ru_a:"", ans:"for", ru_ans:"—", explain:"<b>ikke noget for mig</b> — «не по мне», не подходит. Вкус/кому подходит → for." },
+  { ex:"Øvelse 2", da_b:"Skal jeg oversætte brevet", da_a:"dig?", ru_b:"Мне перевести письмо", ru_a:"тебя?", ans:"for", ru_ans:"для", explain:"<b>oversætte for nogen</b> — перевести для кого-то (в чью пользу) → for." },
+  { ex:"Øvelse 3", da_b:"Jeg måtte betale over 100 kr.", da_a:"reparationen.", ru_b:"Мне пришлось заплатить больше 100 крон", ru_a:"ремонт.", ans:"for", ru_ans:"за", explain:"<b>betale for</b> — платить за что-то → for." },
+  { ex:"Øvelse 3", da_b:"Der er kommet en stor pakke", da_a:"dig.", ru_b:"Тебе пришла большая посылка.", ru_a:"", ans:"til", ru_ans:"тебе", explain:"<b>pakke til dig</b> — посылка тебе. Получатель → til." },
+  { ex:"Øvelse 3", da_b:"Drengen var bange", da_a:"at fortælle, hvad der var sket.", ru_b:"Мальчик боялся", ru_a:"рассказать, что произошло.", ans:"for", ru_ans:"—", explain:"<b>bange for at</b> — бояться сделать что-то → for." },
+  { ex:"Øvelse 3", da_b:"De kom natten", da_a:"torsdag.", ru_b:"Они приехали в ночь со среды", ru_a:"четверг.", ans:"til", ru_ans:"на", explain:"<b>natten til [день]</b> — ночь перед этим днём. Граница времени → til." },
+  { ex:"Øvelse 3", da_b:"Jeg er ikke i stand", da_a:"at betale.", ru_b:"Я не в состоянии", ru_a:"заплатить.", ans:"til", ru_ans:"—", explain:"<b>i stand til at</b> — в состоянии сделать что-то. Фиксированная конструкция → til." },
+  { ex:"Øvelse 3", da_b:"Det lykkedes", da_a:"ham at få en god pris.", ru_b:"Ему удалось", ru_a:"получить хорошую цену.", ans:"for", ru_ans:"—", explain:"<b>lykkes for ham</b> — удалось ему → for." },
+  { ex:"Øvelse 3", da_b:"Måske får vi lejlighed", da_a:"at drøfte sagen igen.", ru_b:"Может, у нас будет возможность", ru_a:"снова обсудить это дело.", ans:"til", ru_ans:"—", explain:"<b>lejlighed til at</b> — возможность сделать что-то → til." },
+  { ex:"Øvelse 3", da_b:"Denne stilling er vist noget", da_a:"dig.", ru_b:"Похоже, эта должность — то что надо", ru_a:"тебя.", ans:"for", ru_ans:"для", explain:"<b>noget for dig</b> — что-то для тебя (подходит тебе) → for." },
+  { ex:"Øvelse 3", da_b:"Man skal have et godt kendskab", da_a:"sprog.", ru_b:"Нужно хорошо знать", ru_a:"языки.", ans:"til", ru_ans:"—", explain:"<b>kendskab til</b> — знание чего-либо, знакомство с чем-то → til." },
+  { ex:"Øvelse 3", da_b:"Sekretæren i reklameafdelingen blev valgt", da_a:"formand.", ru_b:"Секретарь была избрана", ru_a:"председателя.", ans:"til", ru_ans:"в", explain:"<b>blive valgt til</b> — быть избранным на должность → til." },
+  { ex:"Øvelse 3", da_b:"Jeg har ikke brug", da_a:"din hjælp.", ru_b:"Мне не нужна", ru_a:"твоя помощь.", ans:"for", ru_ans:"—", explain:"<b>have brug for</b> — нуждаться в чём-то. Устойчивое → for." },
+  { ex:"Øvelse 3", da_b:"Vi har ansvaret", da_a:"hinanden.", ru_b:"Мы несём ответственность", ru_a:"друг друга.", ans:"for", ru_ans:"за", explain:"<b>ansvar for</b> — ответственность за кого/что-то → for." },
+  { ex:"Øvelse 3", da_b:"Barnet bliver højere år", da_a:"år.", ru_b:"Ребёнок становится выше — год", ru_a:"годом.", ans:"for", ru_ans:"за", explain:"<b>år for år</b> — год за годом. Идиома → for." },
+  { ex:"Øvelse 3", da_b:"Jeg har mest tillid", da_a:"hendes bedstemor.", ru_b:"Я больше всего доверяю", ru_a:"её бабушке.", ans:"til", ru_ans:"—", explain:"<b>tillid til</b> — доверие к кому-то → til." },
+];
+
+let current = 0, correct = 0, wrong = 0, answered = false;
+let order = shuffle([...Array(items.length).keys()]);
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function render() {
+  const app = document.getElementById('app');
+  const item = items[order[current]];
+  const total = items.length;
+  const pct = Math.round((current / total) * 100);
+
+  app.innerHTML = `
+    <header>
+      <div class="title">for <span>/</span> til</div>
+      <div class="score-chip">✓ ${correct} &nbsp; ✗ ${wrong}</div>
+    </header>
+    <div class="progress-wrap">
+      <div class="progress-fill" style="width:${pct}%"></div>
+    </div>
+    <div class="card">
+      <div class="ex-tag">${item.ex} &nbsp;·&nbsp; ${current + 1} / ${total}</div>
+      <div class="sentence-da">
+        ${item.da_b} <span id="bda" class="blank" style="color:var(--muted);border-color:var(--border)">___</span> ${item.da_a}
+      </div>
+      <div class="divider"></div>
+      <div class="sentence-ru">
+        ${item.ru_b} <span id="bru" class="blank-ru">___</span> ${item.ru_a || ''}
+      </div>
+    </div>
+    <div class="btns">
+      <button class="btn btn-for" id="btn-for" onclick="answer('for')">for</button>
+      <button class="btn btn-til" id="btn-til" onclick="answer('til')">til</button>
+    </div>
+    <div id="feedback-area"></div>
+    <button class="next-btn" id="next-btn" onclick="next()" style="display:none">Следующее →</button>
+  `;
+}
+
+function answer(chosen) {
+  if (answered) return;
+  answered = true;
+  const item = items[order[current]];
+  document.getElementById('btn-for').disabled = true;
+  document.getElementById('btn-til').disabled = true;
+
+  const isOk = chosen === item.ans;
+  if (isOk) correct++; else wrong++;
+
+  const bda = document.getElementById('bda');
+  bda.textContent = item.ans;
+  bda.style.color = isOk ? 'var(--til-color)' : 'var(--bad-text)';
+  bda.style.borderColor = isOk ? 'var(--til-color)' : 'var(--bad-text)';
+  if (item.ans === 'for') { bda.style.color = isOk ? 'var(--for-color)' : 'var(--bad-text)'; bda.style.borderColor = isOk ? 'var(--for-color)' : 'var(--bad-text)'; }
+
+  const bru = document.getElementById('bru');
+  bru.textContent = item.ru_ans !== '—' ? item.ru_ans : item.ans;
+
+  document.getElementById('feedback-area').innerHTML = `
+    <div class="feedback ${isOk ? 'ok' : 'bad'}">
+      ${isOk ? '✓ Верно! &nbsp;' : `✗ Нет, правильно <b>${item.ans}</b>. &nbsp;`}${item.explain}
+    </div>`;
+
+  document.getElementById('next-btn').style.display = 'block';
+}
+
+function next() {
+  current++;
+  answered = false;
+  if (current >= items.length) {
+    renderDone();
+  } else {
+    render();
+  }
+}
+
+function renderDone() {
+  const pct = Math.round(correct / items.length * 100);
+  const emoji = pct === 100 ? '🏆' : pct >= 80 ? '💪' : pct >= 60 ? '📖' : '🔄';
+  const msg = pct === 100 ? 'Идеально!' : pct >= 80 ? 'Отлично, почти всё!' : pct >= 60 ? 'Неплохо, есть над чем поработать.' : 'Стоит повторить — пробуй ещё раз.';
+  document.getElementById('app').innerHTML = `
+    <div class="done">
+      <div class="done-emoji">${emoji}</div>
+      <div class="done-score">${correct} / ${items.length}</div>
+      <div class="done-label">правильных ответов</div>
+      <div class="done-msg">${msg}</div>
+      <button class="restart-btn" onclick="restart()">Начать заново</button>
+    </div>`;
+}
+
+function restart() {
+  current = 0; correct = 0; wrong = 0; answered = false;
+  order = shuffle([...Array(items.length).keys()]);
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
