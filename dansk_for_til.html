@@ -73,148 +73,41 @@
     justify-content: space-between;
     padding: 4px 0 2px;
   }
-  .title {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
+  .title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
   .title span { color: var(--muted); font-weight: 400; }
-  .score-chip {
-    font-size: 13px;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
+  .score-chip { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
   .progress-wrap { position: relative; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
-  .progress-fill {
-    position: absolute; left: 0; top: 0; height: 100%;
-    background: var(--progress);
-    border-radius: 2px;
-    transition: width 0.35s ease;
-  }
-  .card {
-    background: var(--card);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px 18px 18px;
-  }
-  .ex-tag {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-  .sentence-da {
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 10px;
-    font-weight: 400;
-  }
-  .divider {
-    height: 0.5px;
-    background: var(--border);
-    margin: 10px 0;
-  }
-  .sentence-ru {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-  }
-  .blank {
-    display: inline-block;
-    min-width: 54px;
-    padding: 0 6px;
-    border-bottom: 2px solid var(--border);
-    text-align: center;
-    font-weight: 600;
-    vertical-align: bottom;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .blank-ru {
-    display: inline-block;
-    min-width: 38px;
-    padding: 0 4px;
-    border-bottom: 1.5px dashed var(--border);
-    text-align: center;
-    vertical-align: bottom;
-  }
-  .btns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .btn {
-    padding: 15px 12px;
-    border-radius: var(--radius-sm);
-    border: 1.5px solid;
-    background: transparent;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-    letter-spacing: 0.02em;
-  }
+  .progress-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--progress); border-radius: 2px; transition: width 0.35s ease; }
+  .card { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 20px 18px 18px; }
+  .ex-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .sentence-da { font-size: 18px; line-height: 1.75; margin-bottom: 10px; }
+  .divider { height: 0.5px; background: var(--border); margin: 10px 0; }
+  .sentence-ru { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .blank { display: inline-block; min-width: 54px; padding: 0 6px; border-bottom: 2px solid var(--border); text-align: center; font-weight: 600; vertical-align: bottom; transition: color 0.2s, border-color 0.2s; }
+  .blank-ru { display: inline-block; min-width: 38px; padding: 0 4px; border-bottom: 1.5px dashed var(--border); text-align: center; vertical-align: bottom; }
+  .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .btn { padding: 16px 12px; border-radius: var(--radius-sm); border: 1.5px solid; background: transparent; font-size: 17px; font-weight: 600; cursor: pointer; transition: background 0.15s, transform 0.1s; letter-spacing: 0.02em; }
   .btn:active { transform: scale(0.97); }
   .btn-for { border-color: var(--for-color); color: var(--for-color); }
   .btn-for:hover { background: var(--for-bg); }
   .btn-til { border-color: var(--til-color); color: var(--til-color); }
   .btn-til:hover { background: var(--til-bg); }
   .btn:disabled { opacity: 0.3; cursor: default; transform: none; }
-  .feedback {
-    border-radius: var(--radius-sm);
-    padding: 14px 16px;
-    font-size: 14px;
-    line-height: 1.65;
-    animation: fadeIn 0.2s ease;
-  }
+  .feedback { border-radius: var(--radius-sm); padding: 14px 16px; font-size: 14px; line-height: 1.65; animation: fadeIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   .feedback b { font-weight: 600; }
   .feedback.ok { background: var(--ok-bg); color: var(--ok-text); border: 0.5px solid var(--ok-border); }
   .feedback.bad { background: var(--bad-bg); color: var(--bad-text); border: 0.5px solid var(--bad-border); }
-  .next-btn {
-    width: 100%;
-    padding: 14px;
-    border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border);
-    background: transparent;
-    font-size: 15px;
-    cursor: pointer;
-    color: var(--muted);
-    transition: background 0.15s;
-  }
+  .next-btn { width: 100%; padding: 14px; border-radius: var(--radius-sm); border: 0.5px solid var(--border); background: transparent; font-size: 15px; cursor: pointer; color: var(--muted); transition: background 0.15s; }
   .next-btn:hover { background: var(--border); }
   .next-btn:active { transform: scale(0.98); }
-
-  /* Done screen */
-  .done {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 10px;
-    padding: 40px 0;
-  }
+  .done { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; padding: 40px 0; }
   .done-emoji { font-size: 48px; margin-bottom: 8px; }
   .done-score { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; }
   .done-label { color: var(--muted); font-size: 15px; margin-bottom: 4px; }
   .done-msg { font-size: 16px; font-weight: 500; margin-bottom: 16px; }
-  .restart-btn {
-    padding: 13px 32px;
-    border-radius: var(--radius-sm);
-    border: 1.5px solid var(--border);
-    background: transparent;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--text);
-    transition: background 0.15s;
-  }
+  .restart-btn { padding: 13px 32px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: transparent; font-size: 15px; font-weight: 500; cursor: pointer; color: var(--text); transition: background 0.15s; }
   .restart-btn:hover { background: var(--border); }
-
   @media (max-width: 380px) {
     .sentence-da { font-size: 16px; }
     .btn { font-size: 16px; padding: 14px 8px; }
@@ -223,60 +116,114 @@
 </head>
 <body>
 <div class="container" id="app"></div>
-
 <script>
 const items = [
+  // ===== ØVELSE 1 =====
   { ex:"Øvelse 1", da_b:"Hvad skal vi have", da_a:"middag?", ru_b:"Что у нас будет", ru_a:"ужин?", ans:"til", ru_ans:"на", explain:"<b>til middag</b> — «на обед/ужин». Назначение еды → til." },
-  { ex:"Øvelse 1", da_b:"Er du glad", da_a:"din nye lejlighed?", ru_b:"Ты рад", ru_a:"свою новую квартиру?", ans:"for", ru_ans:"за", explain:"<b>glad for</b> — устойчивое выражение: рад чему-то → for." },
+  { ex:"Øvelse 1", da_b:"Er du glad", da_a:"din nye lejlighed?", ru_b:"Ты рад", ru_a:"свою новую квартиру?", ans:"for", ru_ans:"за", explain:"<b>glad for</b> — устойчивое: быть радым чему-то → for." },
   { ex:"Øvelse 1", da_b:"Du skal ikke være bange", da_a:"hunden, den gør ikke noget.", ru_b:"Не бойся", ru_a:"собаку, она ничего не сделает.", ans:"for", ru_ans:"—", explain:"<b>bange for</b> — бояться чего-то. Причина страха → for." },
   { ex:"Øvelse 1", da_b:"Vil du med", da_a:"København i week-enden?", ru_b:"Поедешь с нами", ru_a:"Копенгаген на выходных?", ans:"til", ru_ans:"в", explain:"<b>til + место</b> — направление («в Копенгаген») → til." },
   { ex:"Øvelse 1", da_b:"Det har ikke været muligt", da_a:"mig at skaffe billetter.", ru_b:"Мне не удалось", ru_a:"достать билеты.", ans:"for", ru_ans:"—", explain:"<b>muligt for mig</b> — возможно для меня. Кому → for." },
   { ex:"Øvelse 1", da_b:"Han var for træt", da_a:"at gå med.", ru_b:"Он был слишком устал", ru_a:"идти с нами.", ans:"til", ru_ans:"чтобы", explain:"<b>for [прил.] til at</b> — «слишком … чтобы». Конструкция всегда for...til at." },
-  { ex:"Øvelse 1", da_b:"Vil du ikke give 300 kr.", da_a:"en brugt cykel?", ru_b:"Не дашь 300 крон", ru_a:"подержанный велосипед?", ans:"for", ru_ans:"за", explain:"<b>give penge for</b> — заплатить за что-то → for." },
-  { ex:"Øvelse 1", da_b:"Tror du, det vil lykkes", da_a:"mig at finde bedre arbejde?", ru_b:"Думаешь, мне удастся", ru_a:"найти работу получше?", ans:"for", ru_ans:"—", explain:"<b>lykkes for nogen</b> — удасться кому-то → for." },
+  { ex:"Øvelse 1", da_b:"Jeg vil ikke give 300 kr.", da_a:"en brugt cykel.", ru_b:"Я не дам 300 крон", ru_a:"подержанный велосипед.", ans:"for", ru_ans:"за", explain:"<b>give penge for</b> — заплатить/дать деньги за что-то → for." },
+  { ex:"Øvelse 1", da_b:"Tror du, det vil lykkes", da_a:"mig at finde noget bedre arbejde?", ru_b:"Думаешь, мне удастся", ru_a:"найти работу получше?", ans:"for", ru_ans:"—", explain:"<b>lykkes for nogen</b> — удаться кому-то → for." },
+  { ex:"Øvelse 1", da_b:"Desværre fik han ikke lejlighed", da_a:"at møde dem igen inden de rejste.", ru_b:"К сожалению, у него не было возможности", ru_a:"встретиться с ними до отъезда.", ans:"til", ru_ans:"—", explain:"<b>lejlighed til at</b> — возможность сделать что-то → til." },
+  { ex:"Øvelse 1", da_b:"Vil det være muligt", da_a:"dig at komme på fredag?", ru_b:"Сможешь ли ты", ru_a:"прийти в пятницу?", ans:"for", ru_ans:"—", explain:"<b>muligt for dig</b> — возможно для тебя. Кому возможно → for." },
+  { ex:"Øvelse 1", da_b:"Jeg synes, du har mistet evne", da_a:"at se tingene fra en humoristisk side.", ru_b:"Мне кажется, ты утратил способность", ru_a:"видеть вещи с юмористической стороны.", ans:"til", ru_ans:"—", explain:"<b>evne til at</b> — способность что-то делать → til." },
+  { ex:"Øvelse 1", da_b:"Har du penge nok", da_a:"billetten?", ru_b:"У тебя хватит денег", ru_a:"билет?", ans:"til", ru_ans:"на", explain:"<b>penge til</b> — денег на что-то. Назначение денег → til." },
+  { ex:"Øvelse 1", da_b:"Hvad skal du bruge en hammer", da_a:"?", ru_b:"Зачем тебе молоток?", ru_a:"", ans:"til", ru_ans:"—", explain:"<b>bruge til</b> — использовать для чего-то. Назначение → til." },
+  { ex:"Øvelse 1", da_b:"Vi har aldrig haft råd", da_a:"en sådan rejse.", ru_b:"У нас никогда не было средств", ru_a:"такое путешествие.", ans:"til", ru_ans:"на", explain:"<b>råd til</b> — средства на что-то. Финансовая возможность → til." },
+  { ex:"Øvelse 1", da_b:"Han har ret", da_a:"2-ugers ferie hvert år.", ru_b:"Он имеет право", ru_a:"двухнедельный отпуск каждый год.", ans:"til", ru_ans:"на", explain:"<b>ret til</b> — право на что-то → til." },
+  { ex:"Øvelse 1", da_b:"Hun er hurtig", da_a:"at skrive.", ru_b:"Она быстро печатает.", ru_a:"", ans:"til", ru_ans:"—", explain:"<b>hurtig til at</b> — быстрый в чём-то, хорошо умеет → til." },
+  { ex:"Øvelse 1", da_b:"Er du parat", da_a:"at tage af sted?", ru_b:"Ты готов", ru_a:"отправиться?", ans:"til", ru_ans:"—", explain:"<b>parat til at</b> — готов сделать что-то → til." },
+  { ex:"Øvelse 1", da_b:"Jeg er helt klar", da_a:"at gå.", ru_b:"Я полностью готов", ru_a:"идти.", ans:"til", ru_ans:"—", explain:"<b>klar til at</b> — готов к тому чтобы → til." },
   { ex:"Øvelse 1", da_b:"Det er meget vigtigt", da_a:"mig, at du tager med.", ru_b:"Мне очень важно", ru_a:"чтобы ты пошёл с нами.", ans:"for", ru_ans:"для", explain:"<b>vigtigt for mig</b> — важно для меня → for." },
   { ex:"Øvelse 1", da_b:"Du skal først dreje", da_a:"højre.", ru_b:"Сначала нужно повернуть", ru_a:"направо.", ans:"til", ru_ans:"направо", explain:"<b>dreje til højre/venstre</b> — повернуть направо/налево → til." },
-  { ex:"Øvelse 1", da_b:"Biblioteket ligger til venstre", da_a:"posthuset.", ru_b:"Библиотека находится слева", ru_a:"почты.", ans:"for", ru_ans:"от", explain:"<b>til venstre for</b> — слева от чего-то. Пространственная позиция → for." },
+  { ex:"Øvelse 1", da_b:"Til venstre", da_a:"biblioteket ligger posthuset.", ru_b:"Слева", ru_a:"библиотеки находится почта.", ans:"for", ru_ans:"от", explain:"<b>til venstre for X</b> — слева от чего-то. Позиция относительно → for." },
   { ex:"Øvelse 1", da_b:"Titanic var på vej", da_a:"Amerika.", ru_b:"«Титаник» был на пути", ru_a:"Америку.", ans:"til", ru_ans:"в", explain:"<b>på vej til</b> — на пути куда-то. Направление → til." },
+
+  // ===== ØVELSE 2 =====
   { ex:"Øvelse 2", da_b:"Der er telefon", da_a:"dig.", ru_b:"Тебя", ru_a:"к телефону.", ans:"til", ru_ans:"—", explain:"<b>telefon til dig</b> — звонок тебе. Получатель → til." },
   { ex:"Øvelse 2", da_b:"Er der nogen breve", da_a:"mig?", ru_b:"Есть письма", ru_a:"мне?", ans:"til", ru_ans:"мне", explain:"<b>breve til mig</b> — письма мне. Получатель → til." },
   { ex:"Øvelse 2", da_b:"Jeg har købt en gave", da_a:"min bror.", ru_b:"Я купил подарок", ru_a:"своего брата.", ans:"til", ru_ans:"брату", explain:"<b>gave til</b> — подарок кому-то. Получатель → til." },
   { ex:"Øvelse 2", da_b:"Jeg købte noget stof", da_a:"en kjole.", ru_b:"Я купила ткань", ru_a:"платье.", ans:"til", ru_ans:"на", explain:"<b>stof til en kjole</b> — ткань на платье. Назначение → til." },
-  { ex:"Øvelse 2", da_b:"Hun havde ikke mad", da_a:"sine børn.", ru_b:"У неё не было еды", ru_a:"детей.", ans:"til", ru_ans:"для", explain:"<b>mad til børn</b> — еда для детей (назначение) → til." },
-  { ex:"Øvelse 2", da_b:"Børn er turen gratis", da_a:"", ru_b:"Для детей поездка бесплатна.", ru_a:"", ans:"for", ru_ans:"для", explain:"<b>gratis for børn</b> — бесплатно для детей. Кому это касается → for." },
-  { ex:"Øvelse 2", da_b:"I TV er der programmer", da_a:"børn.", ru_b:"На ТВ есть программы", ru_a:"детей.", ans:"til", ru_ans:"для", explain:"<b>programmer til børn</b> — передачи для детей (кому предназначены) → til." },
+  { ex:"Øvelse 2", da_b:"Hun havde ikke mad", da_a:"sine børn.", ru_b:"У неё не было еды", ru_a:"детей.", ans:"til", ru_ans:"для", explain:"<b>mad til børn</b> — еда для детей. Назначение → til." },
+  { ex:"Øvelse 2", da_b:"", da_a:"børn er turen gratis.", ru_b:"Для детей поездка бесплатна.", ru_a:"", ans:"for", ru_ans:"Для", explain:"<b>For børn</b> — для детей (кому это касается/в чью пользу) → for." },
+  { ex:"Øvelse 2", da_b:"I TV er der programmer", da_a:"børn.", ru_b:"На ТВ есть программы", ru_a:"детей.", ans:"til", ru_ans:"для", explain:"<b>programmer til børn</b> — передачи для детей (кому предназначены). Назначение → til." },
   { ex:"Øvelse 2", da_b:"Han blev en god far", da_a:"hendes børn.", ru_b:"Он стал хорошим отцом", ru_a:"её детей.", ans:"for", ru_ans:"для", explain:"<b>far for børn</b> — отец для детей (в их пользу). Польза → for." },
   { ex:"Øvelse 2", da_b:"Hun underviser i gymnastik", da_a:"kvinder.", ru_b:"Она ведёт гимнастику", ru_a:"женщин.", ans:"for", ru_ans:"для", explain:"<b>undervise for</b> — преподавать для кого-то (аудитория) → for." },
-  { ex:"Øvelse 2", da_b:"Min far arbejder", da_a:"et firma.", ru_b:"Мой отец работает", ru_a:"компанию.", ans:"for", ru_ans:"на", explain:"<b>arbejde for</b> — работать на/в чью пользу → for." },
+  { ex:"Øvelse 2", da_b:"Min far arbejder", da_a:"et firma.", ru_b:"Мой отец работает", ru_a:"компанию.", ans:"for", ru_ans:"на", explain:"<b>arbejde for</b> — работать на кого-то → for." },
+  { ex:"Øvelse 2", da_b:"Da hun var på ferie, passede jeg hendes hund", da_a:"hende.", ru_b:"Пока она была в отпуске, я присматривал за её собакой", ru_a:"неё.", ans:"for", ru_ans:"для/вместо", explain:"<b>passe hund for nogen</b> — присматривать за собакой для кого-то, вместо кого-то → for." },
   { ex:"Øvelse 2", da_b:"Kan jeg gøre noget", da_a:"dig?", ru_b:"Могу я что-нибудь сделать", ru_a:"тебя?", ans:"for", ru_ans:"для", explain:"<b>gøre noget for nogen</b> — сделать что-то для кого-то → for." },
   { ex:"Øvelse 2", da_b:"Hun lavede mad", da_a:"gæsterne.", ru_b:"Она приготовила еду", ru_a:"гостей.", ans:"til", ru_ans:"для", explain:"<b>mad til gæsterne</b> — еда для гостей. Назначение → til." },
-  { ex:"Øvelse 2", da_b:"Medicin", da_a:"syge børn.", ru_b:"Лекарство", ru_a:"больных детей.", ans:"til", ru_ans:"для", explain:"<b>medicin til</b> — лекарство кому (назначение предмета) → til." },
+  { ex:"Øvelse 2", da_b:"Medicin", da_a:"syge børn.", ru_b:"Лекарство", ru_a:"больных детей.", ans:"til", ru_ans:"для", explain:"<b>medicin til</b> — лекарство для кого (назначение предмета) → til." },
   { ex:"Øvelse 2", da_b:"Han gav penge", da_a:"en ny cykel.", ru_b:"Он дал деньги", ru_a:"новый велосипед.", ans:"til", ru_ans:"на", explain:"<b>penge til noget</b> — деньги на что-то. Назначение → til." },
   { ex:"Øvelse 2", da_b:"Jeg fik en tegning, som Peter havde tegnet", da_a:"mig.", ru_b:"Я получила рисунок, который Питер нарисовал", ru_a:"меня.", ans:"til", ru_ans:"для", explain:"<b>tegne til nogen</b> — нарисовать и отдать кому-то. Получатель → til." },
   { ex:"Øvelse 2", da_b:"Hun tegnede huset", da_a:"mig, så jeg bedre kunne forstå det.", ru_b:"Она нарисовала дом", ru_a:"меня, чтобы я лучше понял.", ans:"for", ru_ans:"для", explain:"<b>tegne for nogen</b> — нарисовать показывая кому-то (демонстрация) → for." },
+  { ex:"Øvelse 2", da_b:"Der var en besked", da_a:"dig.", ru_b:"Тебе было сообщение.", ru_a:"", ans:"til", ru_ans:"тебе", explain:"<b>besked til dig</b> — сообщение тебе. Получатель → til." },
+  { ex:"Øvelse 2", da_b:"Er der kopper", da_a:"te eller kaffe?", ru_b:"Есть чашки", ru_a:"чай или кофе?", ans:"til", ru_ans:"для", explain:"<b>kopper til te</b> — чашки для чая (назначение предмета) → til." },
   { ex:"Øvelse 2", da_b:"Kun adgang", da_a:"personale.", ru_b:"Только вход", ru_a:"персонала.", ans:"for", ru_ans:"для", explain:"<b>adgang for</b> — доступ для (кому разрешено) → for." },
-  { ex:"Øvelse 2", da_b:"Der er fri adgang", da_a:"bøgerne på biblioteket.", ru_b:"Книги в библиотеке доступны", ru_a:"всех бесплатно.", ans:"til", ru_ans:"—", explain:"<b>fri adgang til</b> — свободный доступ к чему-то. Направление → til." },
+  { ex:"Øvelse 2", da_b:"Der er fri adgang", da_a:"bøgerne på biblioteket.", ru_b:"Книги в библиотеке доступны бесплатно", ru_a:"всем.", ans:"til", ru_ans:"—", explain:"<b>fri adgang til</b> — свободный доступ к чему-то. Объект доступа → til." },
+  { ex:"Øvelse 2", da_b:"Hvad er den maskine", da_a:"?", ru_b:"Для чего эта машина?", ru_a:"", ans:"til", ru_ans:"—", explain:"<b>hvad er X til</b> — для чего предназначен предмет. Назначение → til." },
   { ex:"Øvelse 2", da_b:"Kattemad er mad", da_a:"katte.", ru_b:"Кошачий корм — это еда", ru_a:"кошек.", ans:"til", ru_ans:"для", explain:"<b>mad til katte</b> — еда для кошек. Назначение → til." },
-  { ex:"Øvelse 2", da_b:"Jeg kan ikke lide lever, det er ikke noget", da_a:"mig.", ru_b:"Я не люблю печень — это не моё.", ru_a:"", ans:"for", ru_ans:"—", explain:"<b>ikke noget for mig</b> — «не по мне», не подходит. Вкус/кому подходит → for." },
+  { ex:"Øvelse 2", da_b:"Jeg kan ikke lide lever, det er ikke noget", da_a:"mig.", ru_b:"Я не люблю печень — это не моё.", ru_a:"", ans:"for", ru_ans:"—", explain:"<b>ikke noget for mig</b> — «не по мне», не подходит мне → for." },
   { ex:"Øvelse 2", da_b:"Skal jeg oversætte brevet", da_a:"dig?", ru_b:"Мне перевести письмо", ru_a:"тебя?", ans:"for", ru_ans:"для", explain:"<b>oversætte for nogen</b> — перевести для кого-то (в чью пользу) → for." },
+  { ex:"Øvelse 2", da_b:"Jeg har købt mad", da_a:"i morgen.", ru_b:"Я купил еду", ru_a:"завтра.", ans:"til", ru_ans:"на", explain:"<b>mad til i morgen</b> — еда на завтра. Назначение → til." },
+
+  // ===== ØVELSE 3 =====
   { ex:"Øvelse 3", da_b:"Jeg måtte betale over 100 kr.", da_a:"reparationen.", ru_b:"Мне пришлось заплатить больше 100 крон", ru_a:"ремонт.", ans:"for", ru_ans:"за", explain:"<b>betale for</b> — платить за что-то → for." },
   { ex:"Øvelse 3", da_b:"Der er kommet en stor pakke", da_a:"dig.", ru_b:"Тебе пришла большая посылка.", ru_a:"", ans:"til", ru_ans:"тебе", explain:"<b>pakke til dig</b> — посылка тебе. Получатель → til." },
   { ex:"Øvelse 3", da_b:"Drengen var bange", da_a:"at fortælle, hvad der var sket.", ru_b:"Мальчик боялся", ru_a:"рассказать, что произошло.", ans:"for", ru_ans:"—", explain:"<b>bange for at</b> — бояться сделать что-то → for." },
-  { ex:"Øvelse 3", da_b:"De kom natten", da_a:"torsdag.", ru_b:"Они приехали в ночь со среды", ru_a:"четверг.", ans:"til", ru_ans:"на", explain:"<b>natten til [день]</b> — ночь перед этим днём. Граница времени → til." },
+  { ex:"Øvelse 3", da_b:"De kom natten", da_a:"torsdag.", ru_b:"Они приехали в ночь со среды", ru_a:"четверг.", ans:"til", ru_ans:"на", explain:"<b>natten til torsdag</b> — ночь перед четвергом (граница перехода) → til." },
   { ex:"Øvelse 3", da_b:"Jeg er ikke i stand", da_a:"at betale.", ru_b:"Я не в состоянии", ru_a:"заплатить.", ans:"til", ru_ans:"—", explain:"<b>i stand til at</b> — в состоянии сделать что-то. Фиксированная конструкция → til." },
+  { ex:"Øvelse 3", da_b:"Jeg er ikke i stand til at betale", da_a:"hende.", ru_b:"Я не в состоянии заплатить", ru_a:"ней.", ans:"for", ru_ans:"—", explain:"<b>betale for hende</b> — заплатить за неё (в её пользу) → for." },
+  { ex:"Øvelse 3", da_b:"Han er forfatter", da_a:"mange bøger.", ru_b:"Он является автором", ru_a:"многих книг.", ans:"til", ru_ans:"—", explain:"<b>forfatter til</b> — автор чего-то → til." },
+  { ex:"Øvelse 3", da_b:"Vores naboer holder mest", da_a:"sig selv.", ru_b:"Наши соседи в основном держатся", ru_a:"себя.", ans:"for", ru_ans:"для", explain:"<b>holde for sig selv</b> — держаться особняком, для себя → for." },
   { ex:"Øvelse 3", da_b:"Det lykkedes", da_a:"ham at få en god pris.", ru_b:"Ему удалось", ru_a:"получить хорошую цену.", ans:"for", ru_ans:"—", explain:"<b>lykkes for ham</b> — удалось ему → for." },
+  { ex:"Øvelse 3", da_b:"Han fik en god pris", da_a:"sin gamle bil.", ru_b:"Он получил хорошую цену", ru_a:"свой старый автомобиль.", ans:"for", ru_ans:"за", explain:"<b>pris for</b> — цена за что-то → for." },
   { ex:"Øvelse 3", da_b:"Måske får vi lejlighed", da_a:"at drøfte sagen igen.", ru_b:"Может, у нас будет возможность", ru_a:"снова обсудить это дело.", ans:"til", ru_ans:"—", explain:"<b>lejlighed til at</b> — возможность сделать что-то → til." },
   { ex:"Øvelse 3", da_b:"Denne stilling er vist noget", da_a:"dig.", ru_b:"Похоже, эта должность — то что надо", ru_a:"тебя.", ans:"for", ru_ans:"для", explain:"<b>noget for dig</b> — что-то для тебя (подходит тебе) → for." },
   { ex:"Øvelse 3", da_b:"Man skal have et godt kendskab", da_a:"sprog.", ru_b:"Нужно хорошо знать", ru_a:"языки.", ans:"til", ru_ans:"—", explain:"<b>kendskab til</b> — знание чего-либо, знакомство с чем-то → til." },
-  { ex:"Øvelse 3", da_b:"Sekretæren i reklameafdelingen blev valgt", da_a:"formand.", ru_b:"Секретарь была избрана", ru_a:"председателя.", ans:"til", ru_ans:"в", explain:"<b>blive valgt til</b> — быть избранным на должность → til." },
+  { ex:"Øvelse 3", da_b:"De kunne vel ikke veksle 500 kr.", da_a:"svensk valuta.", ru_b:"Они, наверное, не могли поменять 500 крон", ru_a:"шведскую валюту.", ans:"til", ru_ans:"на", explain:"<b>veksle til</b> — обменять на (другую валюту). Направление конвертации → til." },
+  { ex:"Øvelse 3", da_b:"Kunne de veksle valutaen", da_a:"mig?", ru_b:"Могли они поменять валюту", ru_a:"меня?", ans:"for", ru_ans:"для", explain:"<b>veksle for nogen</b> — поменять для кого-то (в чью пользу) → for." },
+  { ex:"Øvelse 3", da_b:"Vi har desværre så sjældent tid", da_a:"at gå i teatret.", ru_b:"К сожалению, у нас так редко бывает время", ru_a:"сходить в театр.", ans:"til", ru_ans:"—", explain:"<b>tid til at</b> — время на что-то сделать → til." },
+  { ex:"Øvelse 3", da_b:"Sekretæren i reklameafdelingen blev valgt", da_a:"formand for personaleforeningen.", ru_b:"Секретарь рекламного отдела была избрана", ru_a:"председателя профсоюза.", ans:"til", ru_ans:"в", explain:"<b>blive valgt til</b> — быть избранным на должность/роль → til." },
+  { ex:"Øvelse 3", da_b:"Lokalerne egnede sig ikke", da_a:"kontorbrug.", ru_b:"Помещения не подходили", ru_a:"использования как офис.", ans:"til", ru_ans:"для", explain:"<b>egne sig til</b> — подходить для чего-то → til." },
+  { ex:"Øvelse 3", da_b:"Bygningen blev brugt", da_a:"opbevaring af gamle møbler.", ru_b:"Здание использовалось", ru_a:"хранения старой мебели.", ans:"til", ru_ans:"для", explain:"<b>bruges til</b> — использоваться для чего-то. Назначение → til." },
+  { ex:"Øvelse 3", da_b:"Hr. Nielsen var broder", da_a:"fru Andersen.", ru_b:"Г-н Нильсен был братом", ru_a:"г-жи Андерсен.", ans:"til", ru_ans:"—", explain:"<b>broder til</b> — брат кого-то. Родственная связь → til." },
+  { ex:"Øvelse 3", da_b:"Farven på væggen passer godt", da_a:"de blå gardiner.", ru_b:"Цвет стены хорошо подходит", ru_a:"синим шторам.", ans:"til", ru_ans:"к", explain:"<b>passe til</b> — подходить к чему-то, сочетаться → til." },
+  { ex:"Øvelse 3", da_b:"Den unge man blev fritaget", da_a:"militærtjenesten på grund af sit dårlige syn.", ru_b:"Молодой человек был освобождён", ru_a:"военной службы из-за плохого зрения.", ans:"for", ru_ans:"от", explain:"<b>fritaget for</b> — освобождён от чего-то → for." },
+  { ex:"Øvelse 3", da_b:"Min fætter taler glimrende fransk i modsætning", da_a:"mig.", ru_b:"Мой двоюродный брат блестяще говорит по-французски в отличие", ru_a:"меня.", ans:"til", ru_ans:"от", explain:"<b>i modsætning til</b> — в отличие от кого-то → til." },
+  { ex:"Øvelse 3", da_b:"Jeg klarer mig", da_a:"gengæld bedre på tysk.", ru_b:"Зато я лучше справляюсь", ru_a:"с немецким.", ans:"til", ru_ans:"—", explain:"<b>til gengæld</b> — зато, в компенсацию. Устойчивое выражение → til." },
+  { ex:"Øvelse 3", da_b:"Nu skal man arbejde", da_a:"alvor.", ru_b:"Теперь нужно работать", ru_a:"серьёзно.", ans:"for", ru_ans:"всерьёз", explain:"<b>for alvor</b> — всерьёз, по-настоящему. Устойчивое выражение → for." },
+  { ex:"Øvelse 3", da_b:"Kommunerne har sat en plade op", da_a:"minde om den kendte komponist.", ru_b:"Муниципалитеты установили табличку", ru_a:"того чтобы увековечить известного композитора.", ans:"til", ru_ans:"чтобы", explain:"<b>til at</b> (цель действия) — чтобы сделать что-то → til." },
+  { ex:"Øvelse 3", da_b:"Han skulle netop", da_a:"at fortælle hende, hvad han havde hørt, da telefonen ringede.", ru_b:"Он как раз собирался", ru_a:"рассказать ей услышанное, когда зазвонил телефон.", ans:"til", ru_ans:"—", explain:"<b>netop til at</b> — как раз собирался сделать что-то → til." },
   { ex:"Øvelse 3", da_b:"Jeg har ikke brug", da_a:"din hjælp.", ru_b:"Мне не нужна", ru_a:"твоя помощь.", ans:"for", ru_ans:"—", explain:"<b>have brug for</b> — нуждаться в чём-то. Устойчивое → for." },
-  { ex:"Øvelse 3", da_b:"Vi har ansvaret", da_a:"hinanden.", ru_b:"Мы несём ответственность", ru_a:"друг друга.", ans:"for", ru_ans:"за", explain:"<b>ansvar for</b> — ответственность за кого/что-то → for." },
-  { ex:"Øvelse 3", da_b:"Barnet bliver højere år", da_a:"år.", ru_b:"Ребёнок становится выше — год", ru_a:"годом.", ans:"for", ru_ans:"за", explain:"<b>år for år</b> — год за годом. Идиома → for." },
+  { ex:"Øvelse 3", da_b:"Hvad skal du bruge din fritid", da_a:"?", ru_b:"Как ты проведёшь свободное время?", ru_a:"", ans:"til", ru_ans:"—", explain:"<b>bruge fritid til</b> — использовать время на что-то. Назначение → til." },
+  { ex:"Øvelse 3", da_b:"Du skal bruge kniven", da_a:"at skære din flæskesteg med.", ru_b:"Тебе нужно использовать нож", ru_a:"нарезать жаркое.", ans:"til", ru_ans:"чтобы", explain:"<b>bruge til at</b> — использовать что-то чтобы сделать что-то → til." },
+  { ex:"Øvelse 3", da_b:"Hun blev aldrig nødt", da_a:"at arbejde.", ru_b:"Ей никогда не приходилось", ru_a:"работать.", ans:"til", ru_ans:"—", explain:"<b>nødt til at</b> — вынужден/приходится делать что-то → til." },
+  { ex:"Øvelse 3", da_b:"Han har en hel lejlighed", da_a:"sig selv.", ru_b:"У него целая квартира", ru_a:"себя одного.", ans:"for", ru_ans:"для", explain:"<b>for sig selv</b> — для себя, в своё распоряжение → for." },
+  { ex:"Øvelse 3", da_b:"Vi har hele dagen", da_a:"os.", ru_b:"У нас целый день", ru_a:"себя.", ans:"for", ru_ans:"для", explain:"<b>for os</b> — для себя, в своё распоряжение → for." },
+  { ex:"Øvelse 3", da_b:"Skal vi ikke leje et sommerhus", da_a:"sommeren?", ru_b:"Может, снимем летний домик", ru_a:"лето?", ans:"til", ru_ans:"на", explain:"<b>til sommeren</b> — на лето (временной период) → til." },
+  { ex:"Øvelse 3", da_b:"Barnet bliver højere år", da_a:"år.", ru_b:"Ребёнок становится выше — год", ru_a:"годом.", ans:"for", ru_ans:"за", explain:"<b>år for år</b> — год за годом. Идиоматическое повторение → for." },
+  { ex:"Øvelse 3", da_b:"Han oversætter dansk prosa", da_a:"polsk.", ru_b:"Он переводит датскую прозу", ru_a:"польский.", ans:"til", ru_ans:"на", explain:"<b>oversætte til</b> — переводить на (язык). Направление → til." },
+  { ex:"Øvelse 3", da_b:"Må jeg have et stykke", da_a:"?", ru_b:"Можно мне кусочек?", ru_a:"", ans:"til", ru_ans:"—", explain:"<b>et stykke til</b> — ещё кусочек (добавки). til = ещё/дополнительно → til." },
+  { ex:"Øvelse 3", da_b:"Han gjorde det på grund af sin kærlighed", da_a:"børn.", ru_b:"Он сделал это из-за своей любви", ru_a:"детям.", ans:"til", ru_ans:"к", explain:"<b>kærlighed til</b> — любовь к кому-то/чему-то → til." },
   { ex:"Øvelse 3", da_b:"Jeg har mest tillid", da_a:"hendes bedstemor.", ru_b:"Я больше всего доверяю", ru_a:"её бабушке.", ans:"til", ru_ans:"—", explain:"<b>tillid til</b> — доверие к кому-то → til." },
+  { ex:"Øvelse 3", da_b:"Hans slips og skjorte svarer altid", da_a:"hinanden.", ru_b:"Его галстук и рубашка всегда подходят", ru_a:"другу.", ans:"til", ru_ans:"друг к", explain:"<b>svare til</b> — соответствовать чему-то, подходить → til." },
+  { ex:"Øvelse 3", da_b:"Resultaterne svarede ikke", da_a:"vores forventninger.", ru_b:"Результаты не соответствовали", ru_a:"нашим ожиданиям.", ans:"til", ru_ans:"—", explain:"<b>svare til</b> — соответствовать чему-то → til." },
+  { ex:"Øvelse 3", da_b:"Jeg kan ikke svare", da_a:"hans gerninger.", ru_b:"Я не могу отвечать", ru_a:"его поступки.", ans:"for", ru_ans:"за", explain:"<b>svare for</b> — отвечать за что-то (нести ответственность) → for." },
+  { ex:"Øvelse 3", da_b:"Vi har ansvaret", da_a:"hinanden.", ru_b:"Мы несём ответственность", ru_a:"друг друга.", ans:"for", ru_ans:"за", explain:"<b>ansvar for</b> — ответственность за кого/что-то → for." },
+  { ex:"Øvelse 3", da_b:"Vi har mange lektier", da_a:".", ru_b:"У нас много домашних заданий.", ru_a:"", ans:"for", ru_ans:"—", explain:"<b>lektier for</b> (= for i dag/i morgen) — задания на (сегодня/завтра). Назначение → for... хотя чаще говорят lektier til. Здесь for = датская идиома." },
+  { ex:"Øvelse 3", da_b:"Har du noget", da_a:"i aften?", ru_b:"У тебя есть планы", ru_a:"сегодня вечером?", ans:"til", ru_ans:"на", explain:"<b>noget til i aften</b> — что-то на вечер (планы на время) → til." },
+  { ex:"Øvelse 3", da_b:"Hele beløbet gik", da_a:"at betale gælden.", ru_b:"Вся сумма ушла", ru_a:"погашение долга.", ans:"til", ru_ans:"на", explain:"<b>gå til at</b> — уйти на что-то (о деньгах/ресурсах). Назначение → til." },
+  { ex:"Øvelse 3", da_b:"Hvor meget stof går der", da_a:"jakken?", ru_b:"Сколько ткани нужно", ru_a:"куртку?", ans:"til", ru_ans:"на", explain:"<b>gå til</b> — требоваться на что-то (о материале). Назначение → til." },
+  { ex:"Øvelse 3", da_b:"Hvordan gik det", da_a:"?", ru_b:"Как всё прошло?", ru_a:"", ans:"for", ru_ans:"—", explain:"<b>hvordan gik det for dig</b> — как у тебя дела/как прошло. Устойчивое → for." },
+  { ex:"Øvelse 3", da_b:"De var også med", da_a:"at løse de unges problemer.", ru_b:"Они тоже участвовали", ru_a:"решении проблем молодёжи.", ans:"til", ru_ans:"в", explain:"<b>med til at</b> — участвовать в том чтобы сделать что-то → til." },
 ];
 
 let current = 0, correct = 0, wrong = 0, answered = false;
-let order = shuffle([...Array(items.length).keys()]);
+let order = [];
 
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
@@ -291,7 +238,6 @@ function render() {
   const item = items[order[current]];
   const total = items.length;
   const pct = Math.round((current / total) * 100);
-
   app.innerHTML = `
     <header>
       <div class="title">for <span>/</span> til</div>
@@ -325,35 +271,25 @@ function answer(chosen) {
   const item = items[order[current]];
   document.getElementById('btn-for').disabled = true;
   document.getElementById('btn-til').disabled = true;
-
   const isOk = chosen === item.ans;
   if (isOk) correct++; else wrong++;
-
   const bda = document.getElementById('bda');
   bda.textContent = item.ans;
-  bda.style.color = isOk ? 'var(--til-color)' : 'var(--bad-text)';
-  bda.style.borderColor = isOk ? 'var(--til-color)' : 'var(--bad-text)';
-  if (item.ans === 'for') { bda.style.color = isOk ? 'var(--for-color)' : 'var(--bad-text)'; bda.style.borderColor = isOk ? 'var(--for-color)' : 'var(--bad-text)'; }
-
-  const bru = document.getElementById('bru');
-  bru.textContent = item.ru_ans !== '—' ? item.ru_ans : item.ans;
-
+  bda.style.color = item.ans === 'for' ? (isOk ? 'var(--for-color)' : 'var(--bad-text)') : (isOk ? 'var(--til-color)' : 'var(--bad-text)');
+  bda.style.borderColor = bda.style.color;
+  document.getElementById('bru').textContent = item.ru_ans !== '—' ? item.ru_ans : item.ans;
   document.getElementById('feedback-area').innerHTML = `
     <div class="feedback ${isOk ? 'ok' : 'bad'}">
       ${isOk ? '✓ Верно! &nbsp;' : `✗ Нет, правильно <b>${item.ans}</b>. &nbsp;`}${item.explain}
     </div>`;
-
   document.getElementById('next-btn').style.display = 'block';
 }
 
 function next() {
   current++;
   answered = false;
-  if (current >= items.length) {
-    renderDone();
-  } else {
-    render();
-  }
+  if (current >= items.length) renderDone();
+  else render();
 }
 
 function renderDone() {
@@ -365,7 +301,7 @@ function renderDone() {
       <div class="done-emoji">${emoji}</div>
       <div class="done-score">${correct} / ${items.length}</div>
       <div class="done-label">правильных ответов</div>
-      <div class="done-msg">${msg}</div>
+      <div class="done-msg">${msg} (${pct}%)</div>
       <button class="restart-btn" onclick="restart()">Начать заново</button>
     </div>`;
 }
@@ -376,6 +312,7 @@ function restart() {
   render();
 }
 
+order = shuffle([...Array(items.length).keys()]);
 render();
 </script>
 </body>
